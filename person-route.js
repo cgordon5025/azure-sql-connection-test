@@ -4,7 +4,7 @@
 
 const express = require('express')
 const sequelize = require('./config/connection')
-const Person = require('./models')
+const { Person, User } = require('./models')
 const sql = require('mssql')
 const router = express.Router();
 router.use(express.json());
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
         const person = req.body;
         // console.log({ ...person })
         // console.log(`person: ${JSON.stringify(...person)}`);
-        const newPerson = await Person.create({ ...person })
+        const newPerson = await User.create({ ...person })
         // const rowsAffected = await database.create(person);
         res.status(201).json(newPerson);
     } catch (err) {

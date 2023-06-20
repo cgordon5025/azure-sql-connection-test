@@ -1,3 +1,3 @@
 const Person = require('./Person')
-
-module.exports = Person
+const User = require('./User')
+module.exports = { Person, User }
